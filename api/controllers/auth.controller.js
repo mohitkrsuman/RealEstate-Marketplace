@@ -80,3 +80,8 @@ export const google = async (req, res, next) => {
     next(err);
   }
 };
+
+
+export const updateInfo = async (req, res, next) => {
+  
+};
