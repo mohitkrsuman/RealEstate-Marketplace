@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import userRouter from "./routes/user.route.js";
 import authRouter from "./routes/auth.route.js";
+import cookieParser from "cookie-parser";
 
 dotenv.config();
 
@@ -20,9 +21,9 @@ const app = express();
 
 // this is going to allow json as the input of the server
 app.use(express.json());
-
-app.use("/api/user", userRouter);
+app.use(cookieParser());
 app.use("/api/auth", authRouter);
+app.use("/api/user", userRouter);
 
 // middlewares
 app.use((err, req, res, next) => {
